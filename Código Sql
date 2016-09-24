@@ -1,0 +1,57 @@
+/*Aqui esta Todo lo que Aprendio la Pagina de SQLSIVERYA*/
+/*cada cosa de esta base de datos donde he creado una tabla de cliente esta probada y comple con los que aprendio lo quise hacer asi para que uste pueda ver los que hecho cada cosa tiene su comentario a mi entender*/
+/*otra cosa he investigado por otra parte*/
+CREATE DATABASE BDADOLFO;
+ 
+CREATE TABLE CLIENTE(   /*2.Crear la tabla de Cliente usando la palabra reservadas */
+        UsuarioID int primary key identity(1,1),
+        Apellido varchar(30),
+        Nombre varchar(20),
+        Domicilio varchar(30),
+        Telefono varchar(11),
+        Deuda  float,
+        TotalDeuda int,
+);
+ /*Cada Explicacion que muestro aqui son las Aprendidas sqlserverya*/
+ /*------------------------------------------------------------------------------------------*/
+/*3.Esto siver para insertar datos en la tabla de la Base de datos Tabien */
+insert into CLIENTE(Apellido,Nombre,Domicilio,Telefono,Deuda,TotalDeuda) values('sanchez','Adolfo','1234','jse',322,322);
+ 
+/*como ven en la linea de abajo donde esta el otro insertar puende ver que el nombre es delante de Apellido  eso no afecta en nada y los dastos se organizan ya como esta en la tabla  de Cliente*/
+insert into CLIENTE(Nombre,Apellido,Domicilio,Telefono,Deuda,TotalDeuda) values('Lucas','Adolfo','1234','jse',43,332);
+ 
+/*como ven los tipo decimales se insertan sin los parenticis a diferencia del varchar que lo utiliza */
+insert into CLIENTE(Apellido,Nombre,Domicilio,Telefono,Deuda,TotalDeuda) values('Maria','Luisa','1234','jse',433,3232);
+ 
+/*aqui es toy llaman solo el Nombre del Cliente y Deuda*/
+select Nombre,Deuda from CLIENTE;
+ 
+/* ya aqui en select * form CLIENTE se Llama la tabla entera para ser imprimidad o recupera el registros*/
+select * from CLIENTE;
+ 
+/*drop table CLIENTE; puede borrar la tabla entera*/
+ 
+/*con esto esta declaracion podemos buscar un nombre especifico o lo que estemos buscando hacer una recuperacion de un registros*/
+ 
+ select * from CLIENTE
+ where Nombre='Adolfo';
+ 
+ /*Estas son la Operaciones relacionadas de SQL aqui sale los nombres diferentes de */
+ select * from CLIENTE
+   where Nombre<>'Luisa';
+ 
+   /*como ven a relacionamos las de Deudas sin son mayor de 322 que dos las muestres */
+   select Nombre,Deuda from CLIENTE
+             where Deuda>322;
+ 
+/*aqui de nuevo hacemos la relacion del nombre y la Deuda  donde buscamos las deunas menor 322 o igual*/
+            select Nombre,Deuda from CLIENTE
+             where Deuda <=322;
+         
+    /*para eliminar un registro de la tabla vamos utlisamos los siguiente.*/
+    /*y se eliminar el registro con el nombre de Adolfo*/
+    delete from CLIENTE 
+    where Nombre='Adolfo';
+    /*se queremos actualizar un registros  de la Tabla y entonces vamos actualizar un nombre o cambiar por otro*/
+    update CLIENTE set Nombre=' Juana'
+    where Nombre ='Lucas';
